@@ -1,0 +1,383 @@
+#########################################################################
+                      question 2
+###########################################################################
+D={1:5.6,2:7.8,3:6.6,4:8.7,5:7.7}
+print("the origional dictionary",D)
+
+
+#ADDING THE NEW ENTRY ,KEY=2 AND VALUE=8.8
+D[8]=8.8
+print("after adding the value",D)
+
+
+#REMOVING KEY 2
+del D[2]
+print ("after deleting the element",D)
+
+
+#CHECKING THE THE KEY IS PRESENT IN THE DICTIONARY
+print ("is key 6 present in D",6 in D)
+
+
+#PRINTING THE COUNT OF THE VALUES PRESENT IN THE DICTIONARY
+print("number of elements in the D are",len(D))
+##PRINTING THE SUM OF ALL THE VALUES IN THE DICTIONARY
+s=0
+for i in D:
+    s=s+i
+print("sum of the values in the D",s)
+
+
+#UPDATING THE VALUE OF KEY 3 TO 7.1
+D[3]=7.1
+print ("after updating the the value of 3",D)
+
+
+#DELETING THE ENTIRE DICTIONARY
+del D
+print ("after deleting the dictionary",D)
+
+
+
+
+
+##################################################################################
+                                 QUESTION 3 (SET)
+##################################################################################
+
+
+
+s1=set([10,20,30,40,50,60])
+s2=set([40,50,60,70,80,90])
+
+
+#ADDING 55 AND 66 IN SET S1
+s1.add(55)
+s1.add(66)
+print("after adding 55 and 66",s1)
+
+
+
+#DELETING 10 AND 30 FROM SET S2
+s1.remove(10)
+s1.remove(30)
+print("after removing 10 and 30",s1)
+
+
+
+#CHECKING WEATHER 40 IS PRESENT IN THE SET
+print("is 40 present in s1",40 in s1)
+
+
+#PRINTING THE UNION OF SET S1 AN DSET S2
+print ("union of s1 and s2 is ",s1.union(s2))
+
+
+#PRINTING INTERSECTION OF SET S1 AND S2
+print("intersection of s1 and s2",s1.intersection(s2))
+
+
+#PRINTING THE DIFFERENCE BETWEEN SET S1 AND SET S2
+print("s1-s2=",s1-s2)
+print ("Difference s1 - s2 --> ", s1.difference(s2))
+
+
+
+
+
+
+
+
+
+
+###########################################################################
+                                QUESTION NO.-4
+############################################################################
+#4.1  PRINT 100 RANDOM STRINGS WHOSE LENGTH IS IN BETWEEN 6 TO 8
+import string as s
+import random as r
+print ("String --> ",s.ascii_letters,)     #STRING THROUGH ASCII LETTERS
+
+a=100
+for i in range(a):
+    l = r.randint(6, 9)
+    letters = r.sample(s.ascii_letters,l)  #R. MEANS RANDOMLYAND SAMPLE MEANS ONE LEETER IS CHOOSEN FROM THE ASCII_LETTER STRING
+    letters="".join(letters)               #JOIN THE SAMPLES CHOOSEN FROM STRING OF ASCII LETTERS
+    print("string",i, "=", letters)
+
+
+
+
+
+
+
+#4.2  PRINT ALL THE PRIME NUMBERS BETWEEN 600 TO 800
+for i in range(600,800):
+    k=0
+    for a in range(2,int(i/2)):
+        if (i % a == 0):
+            k=k+1                         #FLAG IS GENERATED 
+    if k==0 :
+        print (i)
+
+
+
+#PRINT THE NUMBERS BETWEEN 100 AND 1000 WHICH ARE DIVIDIBLE BY 9 AND 7
+for i in range(100,1000):
+    if i%7==0 and i%9==0:
+        print(i)
+
+
+####################################################################
+#                     	QUESTION 5
+#WAP to create two lists of 10 random numbers between 10 and 30; Find 
+#(i)	Common numbers in the two lists
+#(ii)	Unique numbers in both the list
+#(iii)	Minimum in both the list
+#(iv)	Maximum in both the list
+#(v)	Sum of both the lists
+##########################################################################
+import random 
+
+def Rand(start, end, num): 
+    res = []     
+    for j in range(num): 
+        res.append(random.randint(start, end)) 
+  
+    return res 
+
+num = 10
+start = 10
+end = 30
+
+l1=Rand(start, end, num)
+l2=Rand(start, end, num)
+print (l1, l2)
+i =0
+s=0                                  # PROGRAM TO PRINT THE COOMON NUMBERS IN BOTH LISTS
+size = min(len(l1), len(l2))
+print("common numbers in lists are")
+for i in range(size):
+    if l1[i] == l2[i]:
+            print(l1[i])
+    i+=1
+
+
+
+
+#PROGRAM TO PRINT THE UNIQUE NUMBERS IN THE LISTS
+print ("unique numbers in lists are")
+for i in range(len(l1)):
+    if l1[i] != l2[i]:
+        print (l1[i])
+        
+#############################################
+        #   MINIMUM IN BOTH THE LISTS
+#############################################
+a = min(l1)
+b = min(l2)
+if a<b:
+    print("minimum number in both list=",a)
+else:
+    print("minimum number in both lists",b)
+
+#############################################
+    #   MAXIMUM NUMBER IN BOTH THE LISTS
+#############################################
+a = max(l1)
+b = max(l2)
+if a>b:
+    print("maximum number in both list=",a)
+else:
+    print("maximum number in both lists",b)
+    
+    
+    
+################################################
+      #sum of elements of both the lists#
+################################################
+d=sum(l1)
+e=sum(l2)
+print("sum of elements of both lists are",d+e)
+
+
+
+###########################################################################################
+#                           	QUESTION 6
+#WAP to create a list of 100 random numbers between 100 and 900. Count and print the: 
+#(i)	All odd numbers
+#(ii)	All even numbers
+#(iii)	All prime numbers
+############################################################################################
+import random as r
+iterations=100
+d=0
+for i in range(iterations):
+    a=r.randint(100,900)
+    print("origional random number generated", a)
+    
+    if a%2 == 0:
+        print("odd numbers are",a)
+    else:
+        print("even numbers are",a)
+    for l in range(1,int(a/2)):
+        if a/l == 0:
+            d=d+1
+    if d==0:
+        print (a)
+#################################################################################################
+
+
+
+
+#############################################################################################################
+#                                    QUESTION 7
+#D is a dictionary defined as D={1:"One",2:"Two",3:"Three",4:"Four", 5:"Five"}. 
+#       WAP to read all the keys and values from dictionary and write to the file in the given below format.
+#	Key1, Value1
+#	Key2, Value2
+#	Key3, Value3
+#################################################################################################################
+
+D={1:"One",2:"Two",3:"Three",4:"Four",5:"Five"}
+for d in D:
+    print(d, ",", D[d])
+
+
+
+
+
+
+
+
+###############################################################################################################
+#                                          QUESTION 8
+#L is a list defined as L={"One","Two","Three","Four","Five"}.
+#       WAP to count the length of reach element from a list and write to the file in the given below format:
+#	One, 3
+#	Two, 3
+#	Four, 4
+##################################################################################################################
+L=["One","Two","Three","Four","Five"]
+for i in L:
+    print(i,len(i))
+
+
+
+
+
+
+
+
+
+
+
+###################################################################################################################
+#                                QUESTION 9
+#
+#
+#Write to the file 100 random strings whose length between 10 and 15.
+#
+#
+#
+##################################################################################################################
+import random
+import string
+print(string.ascii_letters)
+iterations=100
+for i in range(iterations):
+    l=random.randint(10,15)
+    a=random.sample(string.ascii_letters,l)
+    a="".join(a)
+    print(i," ",a)
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################################################################################
+#                                QUESTION 10
+#Write to the file all prime numbers between 600 and 800.
+########################################################################################################################
+for i in range(600,800):
+    s=0
+    for l in range(2, int (i/2)):
+        if i%l == 0:
+            s+=1
+            #print (s)
+    if s==0:
+        print(i)
+
+
+
+
+
+
+
+
+
+
+####################################################################################################################
+#                                       QUESTION 11
+#WAP to calculate the time taken by a program.
+###########################################################################################################
+import time
+start=time.time()
+for i in range(600,800):
+    s=0
+    for l in range(2, int (i/2)):
+        if i%l == 0:
+            s+=1
+            #print (s)
+    if s==0:
+        print(i)
+end=time.time()
+print("total time taken: ",end - start)
+
+
+
+
+
+#################################################################################################################
+# 					QUESTION 12
+#WAP to sort following number of elements in a list, calculate time taken and plot the graph.   
+#Number of elements in list	Time Taken
+#50k	T1
+#100k	T2
+#150k	T3
+#200k	T4
+#250k	T5
+#####################################################################################################################
+import random
+import time
+import matplotlib.pyplot as plt
+import pandas as pd
+
+time_taken = []
+
+target = [50000, 150000, 200000, 250000, 300000]
+for t in target:
+    l = []
+    for i in range (1, t):
+        l.append(random.randint(1,t))
+    start = time.time()
+    l.sort()
+    stop = time.time()
+    time_taken.append(stop-start)
+    print("target: {0}, time taken: {1}".format(t, stop - start))
+
+
+fig, ax = plt.subplots()
+ax.plot(target, time_taken)
+ax.set(xlabel='Number of Elements', ylabel='Time Taken (seconds)', Title='Processing Time for various element sizes')
+ax.grid()
+fig.savefig('graph.png')
+plt.show()
+
